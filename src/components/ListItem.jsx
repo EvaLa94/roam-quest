@@ -1,10 +1,10 @@
-export default function ListItem(props) {
+export default function ListItem({ result }) {
   return (
     <div>
       <p>
-        {props.result.name}
+        {result.name}
         <span
-          className={"fi fi-" + props.result.address.countryCode.toLowerCase()}
+          className={"fi fi-" + result.address.countryCode.toLowerCase()}
         ></span>
       </p>
     </div>
