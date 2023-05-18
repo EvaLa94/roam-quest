@@ -1,13 +1,19 @@
 import "./App.css";
-import Search from "./components/Search";
-import { createContext } from "react";
-import { GET_TOKEN } from "./api-resources/config";
+import Search from "./pages/Search";
+import { useState, useEffect, createContext } from "react";
+import { getToken } from "./services/token";
 
-const getToken = GET_TOKEN();
-const token = getToken();
+export const TokenContext = createContext(null);
 
-export const TokenContext = createContext(token);
 export default function App() {
+  const [token, setToken] = useState("");
+
+  useEffect(() => {
+    if (token === "" || token.expires_in === 0) {
+      setToken(getToken());
+    }
+  }, []);
+
   return (
     <>
       <TokenContext.Provider value={{ token }}>
