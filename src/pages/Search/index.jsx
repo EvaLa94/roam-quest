@@ -1,7 +1,8 @@
 import { useState, useEffect, useContext } from "react";
-import List from "../components/List";
-import { TokenContext } from "../App";
-import { getCities } from "../services/cities";
+import List from "../../components/List";
+import { TokenContext } from "../../App";
+import { getCities } from "../../services/cities";
+import styles from "./style.module.scss";
 
 export default function Search() {
   const { token } = useContext(TokenContext);
@@ -32,9 +33,15 @@ export default function Search() {
   }, [input]);
 
   return (
-    <>
-      <input type="text" value={input} onChange={handleChange} />
+    <div className={styles.container}>
+      <input
+        type="text"
+        placeholder="Dove stai andando?"
+        className={styles.input}
+        value={input}
+        onChange={handleChange}
+      />
       {cityData.length > 0 ? <List data={cityData} /> : <p>{message}</p>}
-    </>
+    </div>
   );
 }
