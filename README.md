@@ -22,3 +22,7 @@ VITE_CLIENT_SECRET = "YOUR API SECRET HERE"
 ```
 
 6. Run the project
+
+## Live website
+
+[Live website](https://dynamic-sunshine-8a22b3.netlify.app/)
