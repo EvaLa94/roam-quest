@@ -1,11 +1,11 @@
 import { useContext } from "react";
 
 import ListItem from "../../elements/ListItem";
-import { SearchContext } from "../../pages/Search";
+import { CityDataContext } from "../../pages/Search";
 import styles from "./style.module.scss";
 
 export default function List() {
-  const { cityData } = useContext(SearchContext);
+  const { cityData } = useContext(CityDataContext);
   return (
     <div className={styles.container}>
       {cityData.map((result, index) => (

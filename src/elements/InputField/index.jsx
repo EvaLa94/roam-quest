@@ -1,11 +1,7 @@
-import { useContext } from "react";
-
-import { SearchContext } from "../../pages/Search";
 import styles from "./style.module.scss";
 
-export default function InputField() {
+export default function InputField({ input, setInput }) {
   const handleChange = ({ target }) => setInput(target.value);
-  const { input, setInput } = useContext(SearchContext);
   return (
     <input
       type="text"
