@@ -1,47 +1,20 @@
-import { createContext, useContext, useEffect, useState } from "react";
-
-import { TokenContext } from "../../App";
+import { createContext, useState } from "react";
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
 import List from "../../components/List";
 import SearchBar from "../../components/SearchBar";
-import { getCities } from "../../services/cities";
 import styles from "./style.module.scss";
 
-export const SearchContext = createContext(null);
+export const CityDataContext = createContext(null);
 
 export default function Search() {
-  const { token } = useContext(TokenContext);
   const [cityData, setCityData] = useState([]);
-  const [input, setInput] = useState("");
   const [message, setMessage] = useState("");
-
-  useEffect(() => {
-    if (input.length >= 3) {
-      // Debounce
-      const cityList = setTimeout(() => {
-        getCities(token, input).then((data) => {
-          if (data) {
-            setCityData(data);
-          } else {
-            setCityData([]);
-            setMessage("City not found");
-          }
-        });
-      }, 500);
-      return () => clearTimeout(cityList);
-    } else {
-      setCityData([]);
-      setMessage("Search for a city");
-    }
-  }, [input]);
 
   return (
     <div className={styles.body}>
       <Header />
-      <SearchContext.Provider
-        value={{ cityData, setCityData, input, setInput }}
-      >
+      <CityDataContext.Provider value={{ cityData, setCityData }}>
         <div className={styles.searchContainer}>
           <div className={styles.searchSection}>
             <h1>What do you want to see and do?</h1>
@@ -49,7 +22,7 @@ export default function Search() {
               Discover new attractions and experiences to match your interests
               and travel style
             </h2>
-            <SearchBar />
+            <SearchBar setMessage={setMessage} />
           </div>
         </div>
         <div className={styles.listContainer}>
@@ -62,7 +35,7 @@ export default function Search() {
             )}
           </div>
         </div>
-      </SearchContext.Provider>
+      </CityDataContext.Provider>
       <Footer />
     </div>
   );
