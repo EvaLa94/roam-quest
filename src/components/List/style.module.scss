@@ -2,4 +2,10 @@
 
 .container {
   color: $color-primary;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-evenly;
+  margin: 12px 0px 32px 0px;
 }

@@ -1,10 +1,14 @@
-import styles from "./style.module.scss";
-import ListItem from "../../elements/ListItem";
+import { useContext } from "react";
 
-export default function List({ data }) {
+import ListItem from "../../elements/ListItem";
+import { SearchContext } from "../../pages/Search";
+import styles from "./style.module.scss";
+
+export default function List() {
+  const { cityData } = useContext(SearchContext);
   return (
     <div className={styles.container}>
-      {data.map((result, index) => (
+      {cityData.map((result, index) => (
         <ListItem key={index} result={result} />
       ))}
     </div>

@@ -1,4 +1,4 @@
-import "./App.css";
+import "./App.scss";
 import Search from "./pages/Search";
 import { useState, useEffect, createContext } from "react";
 import { getToken } from "./services/token";

@@ -1,1 +1,13 @@
 @import "../../theme/main.scss";
+
+footer {
+  background-color: $contrast-background;
+  margin-top: auto;
+  height: 100px;
+  padding-top: 24px;
+}
+
+.container {
+  width: 1075px;
+  margin: auto;
+}
