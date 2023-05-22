@@ -1,0 +1,13 @@
+@import "../../theme/main.scss";
+
+.container * {
+  height: 125px;
+  background-color: $color-primary;
+  color: $text-light;
+}
+
+.titleContainer {
+  width: 1075px;
+  padding-top: 32px;
+  margin: auto;
+}

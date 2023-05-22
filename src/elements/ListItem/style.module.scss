@@ -1,0 +1,32 @@
+@import "../../theme/main.scss";
+
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+  box-shadow: rgba(26, 26, 26, 0.16) 0px 2px 8px 0px;
+  border-radius: 8px;
+  padding: 16px;
+  border: 1px solid rgb(231, 231, 231);
+  width: 300px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: lighten($color-primary, 65%);
+  }
+}
+
+.location {
+  display: flex;
+  flex-direction: column;
+}
+
+.cityName {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.active {
+  background-color: lighten($color-primary, 65%);
+}
