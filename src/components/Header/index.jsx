@@ -1,10 +1,10 @@
-import styles from "./style.module.scss";
+import { container, titleContainer } from "./style.module.scss";
 
 export default function Header() {
   return (
-    <header className={styles.container}>
+    <header className={container}>
       <div>
-        <h1 className={styles.titleContainer}>Roam Quest</h1>
+        <h1 className={titleContainer}>Roam Quest</h1>
       </div>
     </header>
   );
