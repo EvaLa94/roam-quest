@@ -1,8 +1,8 @@
-import styles from "./style.module.scss";
+import { button } from "./style.module.scss";
 
 export default function SearchButton() {
   return (
-    <button className={styles.button} type="submit">
+    <button className={button} type="submit">
       Search
     </button>
   );

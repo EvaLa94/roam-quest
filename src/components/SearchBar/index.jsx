@@ -1,44 +1,49 @@
 import { useContext, useEffect, useState } from "react";
-import { TokenContext } from "../../App";
-import { CityDataContext } from "../../pages/Search";
+
 import attractions from "../../assets/attractions.svg";
+import { TokenContext } from "../../contexts/token";
 import InputField from "../../elements/InputField";
 import SearchButton from "../../elements/SearchButton";
-import styles from "./style.module.scss";
 import { getCities } from "../../services/cities";
+import {
+  buttonContainer,
+  container,
+  inputContainer,
+} from "./style.module.scss";
 
-export default function SearchBar({ setMessage }) {
+export default function SearchBar({ setMessage, setCities }) {
   const { token } = useContext(TokenContext);
-  const { setCityData } = useContext(CityDataContext);
   const [input, setInput] = useState("");
 
   useEffect(() => {
     if (input.length >= 3) {
       // Debounce
-      const cityList = setTimeout(() => {
+      const citiesData = setTimeout(() => {
         getCities(token, input).then((data) => {
           if (data) {
-            setCityData(data);
+            setCities(data);
           } else {
-            setCityData([]);
+            setCities([]);
             setMessage("City not found");
           }
         });
       }, 500);
-      return () => clearTimeout(cityList);
+      return () => clearTimeout(citiesData);
     } else {
-      setCityData([]);
+      setCities([]);
       setMessage("Search for a city");
     }
   }, [input]);
 
   return (
-    <div className={styles.container}>
-      <div className={styles.inputContainer}>
+    <div className={container}>
+      <div className={inputContainer}>
         <img src={attractions} />
         <InputField input={input} setInput={setInput} />
       </div>
-      <SearchButton />
+      <div className={buttonContainer}>
+        <SearchButton />
+      </div>
     </div>
   );
 }

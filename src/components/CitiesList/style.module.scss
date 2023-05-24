@@ -9,3 +9,10 @@
   justify-content: space-evenly;
   margin: 12px 0px 32px 0px;
 }
+
+.messageParagraph {
+  text-align: center;
+  line-height: 50px;
+  font-size: 18px;
+  color: lighten($text-dark, 15%);
+}
