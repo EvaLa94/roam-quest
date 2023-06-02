@@ -9,7 +9,7 @@ export default function ListItem({ result }) {
       ></span>
       <div className={location}>
         <p className={cityName}>{result.name}</p>
-        <p>{countryCodes[result.address.countryCode]}</p>
+        <p>{countryCodes(result.address.countryCode)}</p>
       </div>
     </div>
   );

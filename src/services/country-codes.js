@@ -1,4 +1,8 @@
-export const countryCodes = {
+export const countryCodes = (research) => {
+  return countriesList[research];
+};
+
+const countriesList = {
   AF: "Afghanistan",
   AX: "Aland Islands",
   AL: "Albania",
