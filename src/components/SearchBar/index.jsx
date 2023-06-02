@@ -34,6 +34,10 @@ export default function SearchBar() {
       setCities([]);
       setMessage("Search for a city");
     }
+
+    document.querySelementectorAll("[type=search]").forEach((element) => {
+      element.blur();
+    });
   }
 
   return (
