@@ -4,12 +4,7 @@ import Header from "../../components/Header";
 import SearchBar from "../../components/SearchBar";
 import CitiesProvider from "../../contexts/cities";
 import MessageProvider from "../../contexts/message";
-import {
-  body,
-  listSection,
-  searchContainer,
-  searchSection,
-} from "./style.module.scss";
+import { body, listSection, searchContainer, searchSection } from "./style.module.scss";
 
 export default function Search() {
   return (
