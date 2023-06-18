@@ -1,18 +1,13 @@
-import { useState, useContext } from "react";
+import attractions from "@/assets/attractions.svg";
+import { CitiesContext } from "@/contexts/cities";
+import { MessageContext } from "@/contexts/message";
+import { TokenContext } from "@/contexts/token";
+import InputField from "@/elements/InputField";
+import SearchButton from "@/elements/SearchButton";
+import { getCities } from "@/services/cities";
+import { useContext, useState } from "react";
 
-import attractions from "../../assets/attractions.svg";
-import InputField from "../../elements/InputField";
-import SearchButton from "../../elements/SearchButton";
-import { getCities } from "../../services/cities";
-import { MessageContext } from "../../contexts/message";
-import { TokenContext } from "../../contexts/token";
-import { CitiesContext } from "../../contexts/cities";
-import {
-  buttonContainer,
-  container,
-  inputContainer,
-  disableSelect,
-} from "./style.module.scss";
+import { buttonContainer, container, disableSelect, inputContainer } from "./style.module.scss";
 
 export default function SearchBar() {
   const [input, setInput] = useState("");
@@ -34,14 +29,10 @@ export default function SearchBar() {
       setCities([]);
       setMessage("Search for a city");
     }
-
-    document.querySelectorAll("[type=search]").forEach((element) => {
-      element.blur();
-    });
   }
 
   return (
-    <div className={container}>
+    <section className={container}>
       <div className={inputContainer}>
         <img src={attractions} className={disableSelect} />
         <InputField
@@ -53,6 +44,6 @@ export default function SearchBar() {
       <div className={buttonContainer}>
         <SearchButton input={input} handleSearch={handleSearch} />
       </div>
-    </div>
+    </section>
   );
 }

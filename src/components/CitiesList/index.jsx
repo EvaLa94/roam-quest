@@ -1,8 +1,8 @@
+import { CitiesContext } from "@/contexts/cities";
+import { MessageContext } from "@/contexts/message";
+import ListItem from "@/elements/ListItem";
 import { useContext } from "react";
 
-import { CitiesContext } from "../../contexts/cities";
-import { MessageContext } from "../../contexts/message";
-import ListItem from "../../elements/ListItem";
 import { container, messageParagraph } from "./style.module.scss";
 
 export default function CitiesList() {

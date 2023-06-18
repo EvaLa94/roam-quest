@@ -1,6 +1,6 @@
+import { CitiesContext } from "@/contexts/cities";
 import { useContext, useEffect } from "react";
 
-import { CitiesContext } from "../../contexts/cities";
 import { button } from "./style.module.scss";
 
 export default function SearchButton({ handleSearch }) {

@@ -1,5 +1,5 @@
-import TokenProvider from "./contexts/token";
-import Search from "./pages/Search";
+import TokenProvider from "@/contexts/token";
+import Search from "@/pages/Search";
 
 import "./App.scss";
 
