@@ -13,8 +13,8 @@ export default function CitiesList() {
     <>
       {cities.length > 0 ? (
         <div className={container}>
-          {cities.map((result, index) => (
-            <ListItem key={index} result={result} />
+          {cities.map((Attractions, index) => (
+            <ListItem key={index} Attractions={Attractions} />
           ))}
         </div>
       ) : (

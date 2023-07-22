@@ -1,14 +1,16 @@
 @import "../../theme/main.scss";
 
-.container * {
+header {
   height: 125px;
   background-color: $color-primary;
-  color: $text-light;
 }
 
 .titleContainer {
-  max-width: 1075px;
-  width: 100%;
+  max-width: $large-max-width;
   padding: 32px 32px 0px 32px;
   margin: auto;
+
+  a {
+    color: $text-light;
+  }
 }

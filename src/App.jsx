@@ -1,5 +1,5 @@
 import TokenProvider from "@/contexts/token";
-import Search from "@/pages/Search";
+import RootRouter from "@/router/RootRouter";
 
 import "./App.scss";
 
@@ -7,7 +7,7 @@ export default function App() {
   return (
     <>
       <TokenProvider>
-        <Search />
+        <RootRouter />
       </TokenProvider>
     </>
   );
