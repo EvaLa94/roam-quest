@@ -1,4 +1,4 @@
-import { countryCodes } from "../../services/country-codes";
+import { countryCodes } from "@/services/country-codes";
 import { cityName, container, location } from "./style.module.scss";
 
 export default function ListItem({ Attractions }) {
