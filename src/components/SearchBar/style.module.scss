@@ -1,4 +1,4 @@
-@import "../../theme/main.scss";
+@import "@/theme/main.scss";
 
 .container {
   display: flex;
@@ -30,6 +30,10 @@
     img {
       height: 20px;
       margin: auto 15px;
+    }
+
+    form {
+      width: 100%;
     }
   }
 
