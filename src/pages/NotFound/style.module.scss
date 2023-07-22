@@ -1,0 +1,28 @@
+@import "@/theme/main.scss";
+
+.container {
+  max-width: $large-max-width;
+  margin: auto;
+
+  h1 {
+    color: $text-dark;
+    font-size: 32px;
+    font-weight: 800;
+    text-align: center;
+    padding: 5px;
+  }
+
+  p {
+    color: lighten($text-dark, 15%);
+    font-size: 20px;
+    text-align: center;
+  }
+
+  img {
+    max-height: 40vh;
+  }
+
+  a:hover {
+    color: $color-secondary;
+  }
+}
