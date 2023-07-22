@@ -1,10 +1,12 @@
-import { container, titleContainer } from "./style.module.scss";
+import { Link } from "react-router-dom";
+
+import { titleContainer } from "./style.module.scss";
 
 export default function Header() {
   return (
-    <header className={container}>
-      <section>
-        <h1 className={titleContainer}>Roam Quest</h1>
+    <header>
+      <section className={titleContainer}>
+        <Link to="/">Roam Quest</Link>
       </section>
     </header>
   );

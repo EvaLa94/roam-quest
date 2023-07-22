@@ -1,16 +1,17 @@
 import CitiesList from "@/components/CitiesList";
-import Footer from "@/components/Footer";
-import Header from "@/components/Header";
 import SearchBar from "@/components/SearchBar";
 import CitiesProvider from "@/contexts/cities";
 import MessageProvider from "@/contexts/message";
 
-import { body, listSection, searchContainer, searchSection } from "./style.module.scss";
+import {
+  listSection,
+  searchContainer,
+  searchSection,
+} from "./style.module.scss";
 
 export default function Search() {
   return (
-    <section className={body}>
-      <Header />
+    <main>
       <CitiesProvider>
         <MessageProvider>
           <section className={searchContainer}>
@@ -20,18 +21,17 @@ export default function Search() {
                 Discover new attractions and experiences to match your interests
                 and travel style
               </h2>
-              <SearchBar />
             </article>
+            <SearchBar />
           </section>
           <section>
             <article className={listSection}>
               <h2>Destinations</h2>
-              <CitiesList />
             </article>
+            <CitiesList />
           </section>
         </MessageProvider>
       </CitiesProvider>
-      <Footer />
-    </section>
+    </main>
   );
 }
