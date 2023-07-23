@@ -1,0 +1,25 @@
+@import "@/theme/main.scss";
+
+.container {
+  max-width: $medium-max-width;
+  margin: 15px auto;
+  padding: 16px;
+  box-shadow: rgba(26, 26, 26, 0.16) 0px 2px 8px 0px;
+  border-radius: 8px;
+  border: 1px solid rgb(231, 231, 231);
+
+  ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    list-style-type: none;
+
+    li {
+      margin: 5px;
+      padding: 5px;
+      background-color: lighten($color-primary, 65%);
+      border-radius: 15px;
+      font-size: 14px;
+    }
+  }
+}

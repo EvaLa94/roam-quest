@@ -8,5 +8,11 @@ export const getCities = async (token, input) => {
     }
   )
     .then((res) => res.json())
-    .then(({ data }) => data);
+    .then(({ data }) => {
+      return data.filter(
+        (result) =>
+          result.geoCode.hasOwnProperty("latitude") &&
+          result.geoCode.hasOwnProperty("longitude")
+      );
+    });
 };
