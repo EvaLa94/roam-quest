@@ -1,4 +1,4 @@
-export const getToken = () => {
+export const fetchToken = () => {
   return fetch("https://test.api.amadeus.com/v1/security/oauth2/token", {
     headers: {
       "content-type": "application/x-www-form-urlencoded",
