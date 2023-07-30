@@ -1,11 +1,14 @@
-import styles from "./style.module.scss";
-import AttractionsProvider from "@/contexts/attractions";
 import AttractionsList from "@/components/AttractionsList";
+import AttractionsProvider from "@/contexts/attractions";
+
+import { container } from "./style.module.scss";
 
 export default function Attractions() {
   return (
     <AttractionsProvider>
-      <AttractionsList />
+      <section className={container}>
+        <AttractionsList />
+      </section>
     </AttractionsProvider>
   );
 }

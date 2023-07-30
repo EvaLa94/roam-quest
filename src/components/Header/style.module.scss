@@ -1,16 +1,18 @@
 @import "@/theme/main.scss";
 
-header {
-  height: 125px;
+.header {
   background-color: $color-primary;
-}
-
-.titleContainer {
-  max-width: $large-max-width;
-  padding: 32px 32px 0px 32px;
-  margin: auto;
+  width: 100%;
+  text-align: center;
+  line-height: 150px;
 
   a {
     color: $text-light;
+    text-decoration: none;
+    font-size: 52px;
+
+    &:hover {
+      color: $color-secondary;
+    }
   }
 }

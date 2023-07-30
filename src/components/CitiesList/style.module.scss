@@ -14,6 +14,6 @@
 .messageParagraph {
   text-align: center;
   line-height: 50px;
-  font-size: 18px;
+  font-size: $medium-text;
   color: lighten($text-dark, 15%);
 }

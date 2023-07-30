@@ -1,10 +1,11 @@
-import { container, main } from "./style.module.scss";
-import { useLocation } from "react-router-dom";
 import { AttractionsContext } from "@/contexts/attractions";
-import { useContext, useEffect } from "react";
-import { getAttractions } from "@/services/getAttractions";
 import { TokenContext } from "@/contexts/token";
+import { getAttractions } from "@/services/getAttractions";
+import { useContext, useEffect } from "react";
+import { useLocation } from "react-router-dom";
+
 import AttractionItem from "../../elements/AttractionItem";
+import { container } from "./style.module.scss";
 
 export default function AttractionsList() {
   const location = useLocation();
@@ -23,14 +24,14 @@ export default function AttractionsList() {
   }, []);
 
   return (
-    <main className={main}>
-      <h1>Attractions</h1>
+    <main className={container}>
       {attractions.data ? (
-        <div className={container}>
+        <section>
+          <h1>Attractions</h1>
           {attractions.data.map((result, index) => (
             <AttractionItem key={index} result={result} />
           ))}
-        </div>
+        </section>
       ) : (
         <p>No data found. Try another city!</p>
       )}

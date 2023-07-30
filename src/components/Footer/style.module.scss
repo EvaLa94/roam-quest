@@ -3,13 +3,25 @@
 footer {
   background-color: $contrast-background;
   margin-top: auto;
-  height: 100px;
-  padding-top: 24px;
+  padding: 32px;
+  font-size: $medium-text;
 }
 
 .container {
   max-width: $large-max-width;
   width: 100%;
   margin: auto;
-  padding: 0px 32px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  article {
+    padding: 10px;
+  }
+
+  img {
+    height: 32px;
+    margin: 0px 10px;
+  }
 }

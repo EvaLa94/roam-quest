@@ -1,9 +1,23 @@
 import { container } from "./style.module.scss";
+import github from "@/assets/github.png";
+import linkedin from "@/assets/linkedin.png";
 
 export default function Footer() {
   return (
     <footer>
-      <div className={container}>FOOTER CONTENT</div>
+      <section className={container}>
+        <article>
+          <p>Get in touch with me:</p>
+        </article>
+        <article>
+          <a href="https://github.com/EvaLa94">
+            <img src={github} />
+          </a>
+          <a href="https://www.linkedin.com/in/eva-lateltin/">
+            <img src={linkedin} />
+          </a>
+        </article>
+      </section>
     </footer>
   );
 }
