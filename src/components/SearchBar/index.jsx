@@ -1,25 +1,29 @@
 import attractions from "@/assets/attractions.svg";
 import { CitiesContext } from "@/contexts/cities";
 import { MessageContext } from "@/contexts/message";
-import { TokenContext } from "@/contexts/token";
 import InputField from "@/elements/InputField";
 import SearchButton from "@/elements/SearchButton";
 import { getCities } from "@/services/cities";
 import { useContext, useState } from "react";
 
-import { buttonContainer, container, disableSelect, inputContainer } from "./style.module.scss";
+import {
+  buttonContainer,
+  container,
+  disableSelect,
+  inputContainer,
+} from "./style.module.scss";
 
 export default function SearchBar() {
   const [input, setInput] = useState("");
-  const { token } = useContext(TokenContext);
   const { setMessage } = useContext(MessageContext);
   const { setCities } = useContext(CitiesContext);
 
   function handleSearch() {
     if (input.length >= 3) {
-      getCities(token, input).then((data) => {
-        if (data) {
-          setCities(data);
+      getCities(input).then((data) => {
+        if (!data.error) {
+          console.log(data);
+          setCities([data]);
         } else {
           setCities([]);
           setMessage("City not found");
