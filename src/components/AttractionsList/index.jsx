@@ -1,5 +1,4 @@
 import { AttractionsContext } from "@/contexts/attractions";
-import { TokenContext } from "@/contexts/token";
 import { getAttractions } from "@/services/getAttractions";
 import { useContext, useEffect } from "react";
 import { useLocation } from "react-router-dom";
@@ -12,23 +11,21 @@ export default function AttractionsList() {
   const parameters = new URLSearchParams(location.search);
   const latitude = parameters.get("latitude");
   const longitude = parameters.get("longitude");
-  const { token } = useContext(TokenContext);
 
   const { attractions, setAttractions } = useContext(AttractionsContext);
 
   useEffect(() => {
-    getAttractions(token, latitude, longitude).then((data) => {
-      setAttractions(data);
-      console.log(data);
+    getAttractions(latitude, longitude).then((data) => {
+      setAttractions(data.features);
     });
   }, []);
 
   return (
     <main className={container}>
-      {attractions.data ? (
+      {attractions.length > 0 ? (
         <section>
           <h1>Attractions</h1>
-          {attractions.data.map((result, index) => (
+          {attractions.map((result, index) => (
             <AttractionItem key={index} result={result} />
           ))}
         </section>

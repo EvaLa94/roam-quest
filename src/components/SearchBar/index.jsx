@@ -22,7 +22,6 @@ export default function SearchBar() {
     if (input.length >= 3) {
       getCities(input).then((data) => {
         if (!data.error) {
-          console.log(data);
           setCities([data]);
         } else {
           setCities([]);

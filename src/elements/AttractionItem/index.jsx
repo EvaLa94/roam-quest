@@ -3,11 +3,11 @@ import { container } from "./style.module.scss";
 export default function AttractionItem({ result }) {
   return (
     <article className={container}>
-      <h2>{result.name}</h2>
-      <p>{result.category}</p>
+      <h2>{result.properties.name}</h2>
+      <a href={`/attraction/${result.id}`}>More information</a>
       <p>Tags:</p>
       <ul>
-        {result.tags.map((element, index) => (
+        {result.properties.kinds.split(",").map((element, index) => (
           <li key={index}>{element}</li>
         ))}
       </ul>

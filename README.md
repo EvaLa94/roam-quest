@@ -11,14 +11,13 @@ npm run dev
 ## How to run the project:
 
 1. Download the project.
-2. Get a test API from the [Amadeus](https://developers.amadeus.com/) website.
-3. Go to [My Apps](https://developers.amadeus.com/my-apps) section, select your project and get your API Key and API Secret.
+2. Get a free API from the [OpenTripMap](https://opentripmap.io/product) website.
+3. After signin in, you will receive your API key.
 4. In the root of the project, find and rename the file ".env.example" to ".env"
-5. In the file ".env", replace in the constants the API Key and API Secret that you got in step 3.
+5. In the file ".env", replace in the constant the API Key that you got in step 3.
 
 ```
-VITE_CLIENT_ID = "YOUR API KEY HERE"
-VITE_CLIENT_SECRET = "YOUR API SECRET HERE"
+VITE_API_KEY = "YOUR OPEN TRIP MAP API HERE"
 ```
 
 6. Run the project
