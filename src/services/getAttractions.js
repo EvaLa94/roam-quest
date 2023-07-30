@@ -1,12 +1,12 @@
-export const getAttractions = async (token, latitude, longitude) => {
-  return fetch(
-    `https://test.api.amadeus.com/v1/reference-data/locations/pois?latitude=${latitude}&longitude=${longitude}&radius=1&page%5Blimit%5D=10&page%5Boffset%5D=0`,
-    {
-      headers: {
-        Authorization: await token,
-      },
-    }
-  )
+export const getAttractions = async (latitude, longitude) => {
+  const url = new URL("http://api.opentripmap.com/0.1/en/places/radius");
+
+  url.searchParams.append("apikey", import.meta.env.VITE_API_KEY);
+  url.searchParams.append("lat", +latitude);
+  url.searchParams.append("lon", +longitude);
+  url.searchParams.append("radius", 500);
+
+  return fetch(url)
     .then((res) => res.json())
     .then((data) => data);
 };
