@@ -3,11 +3,7 @@ import SearchBar from "@/components/SearchBar";
 import CitiesProvider from "@/contexts/cities";
 import MessageProvider from "@/contexts/message";
 
-import {
-  listSection,
-  searchContainer,
-  searchSection,
-} from "./style.module.scss";
+import { listSection, searchContainer, searchSection } from "./style.module.scss";
 
 export default function Search() {
   return (
@@ -26,7 +22,7 @@ export default function Search() {
           </section>
           <section>
             <article className={listSection}>
-              <h2>Destinations</h2>
+              <h1>Destinations</h1>
             </article>
             <CitiesList />
           </section>

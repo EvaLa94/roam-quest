@@ -6,7 +6,7 @@
 
   h1 {
     color: $text-dark;
-    font-size: 32px;
+    font-size: $large-text;
     font-weight: 800;
     text-align: center;
     padding: 5px;
@@ -14,7 +14,7 @@
 
   p {
     color: lighten($text-dark, 15%);
-    font-size: 20px;
+    font-size: $large-text;
     text-align: center;
   }
 
