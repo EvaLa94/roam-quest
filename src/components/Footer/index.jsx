@@ -10,10 +10,10 @@ export default function Footer() {
           <p>Get in touch with me:</p>
         </article>
         <article>
-          <a href="https://github.com/EvaLa94">
+          <a href="https://github.com/EvaLa94" target="_blank">
             <img src={github} />
           </a>
-          <a href="https://www.linkedin.com/in/eva-lateltin/">
+          <a href="https://www.linkedin.com/in/eva-lateltin/" target="_blank">
             <img src={linkedin} />
           </a>
         </article>

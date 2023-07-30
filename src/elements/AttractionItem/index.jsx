@@ -1,4 +1,5 @@
 import { container } from "./style.module.scss";
+import { capitalizeFirstLetter } from "../../services/capitalize";
 
 export default function AttractionItem({ result }) {
   return (
@@ -8,7 +9,9 @@ export default function AttractionItem({ result }) {
       <p>Tags:</p>
       <ul>
         {result.properties.kinds.split(",").map((element, index) => (
-          <li key={index}>{element}</li>
+          <li key={index}>
+            {capitalizeFirstLetter(element).replace("_", " ")}
+          </li>
         ))}
       </ul>
     </article>
