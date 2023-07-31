@@ -2,6 +2,7 @@ import RootLayout from "@/layout/RootLayout";
 import Attractions from "@/pages/Attractions";
 import NotFound from "@/pages/NotFound";
 import Search from "@/pages/Search";
+import AttractionInfo from "@/pages/AttractionInfo";
 import {
   createBrowserRouter,
   createRoutesFromElements,
@@ -15,6 +16,7 @@ export default function RootRouter() {
       <Route path="/" element={<RootLayout />}>
         <Route index element={<Search />} />
         <Route path="attractions" element={<Attractions />} />
+        <Route path="attraction/:id" element={<AttractionInfo />} />
         <Route path="*" element={<NotFound />} />
       </Route>
     )
