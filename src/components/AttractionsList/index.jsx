@@ -1,4 +1,4 @@
-import { getAttractions } from "@/services/getAttractions";
+import { getAttractions } from "@/services/get-attractions";
 import { useLocation } from "react-router-dom";
 
 import AttractionItem from "../../elements/AttractionItem";
@@ -24,10 +24,10 @@ export default function AttractionsList() {
     <main className={container}>
       <section>
         <h1>Attractions</h1>
-        <p>{isLoading && "Loading..."}</p>
         {attractions?.features.map((result, index) => (
           <AttractionItem key={index} result={result} />
         ))}
+        <p>{isLoading && "Loading..."}</p>
         <p>
           {attractions?.features.length === 0 &&
             "No data found. Try another city!"}

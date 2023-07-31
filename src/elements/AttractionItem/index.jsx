@@ -10,7 +10,7 @@ export default function AttractionItem({ result }) {
       <ul>
         {result.properties.kinds.split(",").map((element, index) => (
           <li key={index}>
-            {capitalizeFirstLetter(element).replace("_", " ")}
+            {capitalizeFirstLetter(element).replaceAll("_", " ")}
           </li>
         ))}
       </ul>

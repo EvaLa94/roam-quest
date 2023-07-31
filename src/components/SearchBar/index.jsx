@@ -3,7 +3,7 @@ import { CitiesContext } from "@/contexts/cities";
 import { MessageContext } from "@/contexts/message";
 import InputField from "@/elements/InputField";
 import SearchButton from "@/elements/SearchButton";
-import { getCities } from "@/services/cities";
+import { getCities } from "@/services/get-cities";
 import { useContext, useState } from "react";
 
 import {
