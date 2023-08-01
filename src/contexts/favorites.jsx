@@ -3,9 +3,13 @@ import { createContext, useState } from "react";
 export const FavoritesContext = createContext();
 
 export default function FavoritesProvider({ children }) {
+  const savedCities = JSON.parse(localStorage.getItem("cities")) || [];
+  const savedAttractions =
+    JSON.parse(localStorage.getItem("attractions")) || [];
+
   const [favorites, setFavorites] = useState({
-    cities: [],
-    attractions: [],
+    cities: savedCities,
+    attractions: savedAttractions,
   });
 
   return (

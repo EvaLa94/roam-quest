@@ -9,18 +9,26 @@ export default function FavoritesIcon({ destination, data }) {
   const { favorites, setFavorites } = useContext(FavoritesContext);
 
   const addFavorite = () => {
+    const modifiedData = [...favorites[destination], data];
+
+    localStorage.setItem(destination, JSON.stringify(modifiedData));
+
     setFavorites({
       ...favorites,
-      [destination]: [...favorites[destination], data],
+      [destination]: JSON.parse(localStorage.getItem(destination)),
     });
   };
 
   const removeFavorite = () => {
+    const modifiedData = favorites[destination].filter(
+      (element) => element != data
+    );
+
+    localStorage.setItem(destination, JSON.stringify(modifiedData));
+
     setFavorites({
       ...favorites,
-      [destination]: favorites[destination].filter(
-        (element) => element != data
-      ),
+      [destination]: JSON.parse(localStorage.getItem(destination)),
     });
   };
 
