@@ -6,12 +6,7 @@ import SearchButton from "@/elements/SearchButton";
 import { getCities } from "@/services/get-cities";
 import { useContext, useState } from "react";
 
-import {
-  buttonContainer,
-  container,
-  disableSelect,
-  inputContainer,
-} from "./style.module.scss";
+import { buttonContainer, container, disableSelect, inputContainer } from "./style.module.scss";
 
 export default function SearchBar() {
   const [input, setInput] = useState("");
