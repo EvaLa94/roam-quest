@@ -1,14 +1,10 @@
 import RootLayout from "@/layout/RootLayout";
+import AttractionInfo from "@/pages/AttractionInfo";
 import Attractions from "@/pages/Attractions";
+import Favorites from '@/pages/Favorites'
 import NotFound from "@/pages/NotFound";
 import Search from "@/pages/Search";
-import AttractionInfo from "@/pages/AttractionInfo";
-import {
-  createBrowserRouter,
-  createRoutesFromElements,
-  Route,
-  RouterProvider,
-} from "react-router-dom";
+import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from "react-router-dom";
 
 export default function RootRouter() {
   const router = createBrowserRouter(
@@ -17,6 +13,7 @@ export default function RootRouter() {
         <Route index element={<Search />} />
         <Route path="attractions" element={<Attractions />} />
         <Route path="attraction/:id" element={<AttractionInfo />} />
+        <Route path="favorites" element={<Favorites />} />
         <Route path="*" element={<NotFound />} />
       </Route>
     )

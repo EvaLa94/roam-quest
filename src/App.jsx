@@ -1,3 +1,4 @@
+import FavoritesProvider from "@/contexts/favorites";
 import RootRouter from "@/router/RootRouter";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
@@ -9,7 +10,9 @@ export default function App() {
   return (
     <>
       <QueryClientProvider client={queryClient}>
-        <RootRouter />
+        <FavoritesProvider>
+          <RootRouter />
+        </FavoritesProvider>
       </QueryClientProvider>
     </>
   );

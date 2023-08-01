@@ -1,8 +1,8 @@
+import AttractionItem from "@/elements/AttractionItem";
 import { getAttractions } from "@/services/get-attractions";
 import { useQuery } from "@tanstack/react-query";
 import { useLocation } from "react-router-dom";
 
-import AttractionItem from "../../elements/AttractionItem";
 import { container } from "./style.module.scss";
 
 export default function AttractionsList() {
