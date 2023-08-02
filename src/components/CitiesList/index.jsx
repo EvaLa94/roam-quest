@@ -1,6 +1,6 @@
 import { CitiesContext } from "@/contexts/cities";
 import { MessageContext } from "@/contexts/message";
-import ListItem from "@/elements/ListItem";
+import CityItem from "@/elements/CityItem";
 import { useContext } from "react";
 
 import { container, messageParagraph } from "./style.module.scss";
@@ -14,7 +14,7 @@ export default function CitiesList() {
       {cities.length > 0 ? (
         <div className={container}>
           {cities.map((result, index) => (
-            <ListItem key={index} result={result} />
+            <CityItem key={index} result={result} />
           ))}
         </div>
       ) : (
