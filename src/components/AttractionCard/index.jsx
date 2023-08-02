@@ -1,6 +1,8 @@
-import { container, details } from "./style.module.scss";
-import { capitalizeFirstLetter } from "@/services/capitalize";
 import location from "@/assets/location.svg";
+import FavoritesIcon from "@/elements/FavoritesIcon";
+import { capitalizeFirstLetter } from "@/services/capitalize";
+
+import { attractionInfo, container } from "./style.module.scss";
 
 export default function AttractionCard({ information, id }) {
   const address = [
@@ -11,9 +13,25 @@ export default function AttractionCard({ information, id }) {
   ]
     .filter(Boolean)
     .join(" - ");
+
+  const favoritesData = {
+    id: id,
+    details: {
+      id: id,
+      properties: {
+        name: information?.name,
+        kinds: information?.kinds,
+      },
+      geometry: {
+        coordinates: [information?.point?.lat, information?.point?.lon],
+      },
+    },
+  };
+
   return (
     <section className={container}>
       {information?.name && <h1>{information.name}</h1>}
+      <FavoritesIcon data={favoritesData} destination="attractions" />
       {information?.kinds && (
         <ul>
           {information.kinds.split(",").map((element, index) => (
@@ -30,7 +48,7 @@ export default function AttractionCard({ information, id }) {
         </address>
       )}
       {information?.preview?.source && (
-        <article className={details}>
+        <article className={attractionInfo}>
           <img src={information.preview.source} />
           {information.wikipedia_extracts?.text && (
             <p>{information.wikipedia_extracts.text}</p>
@@ -40,19 +58,3 @@ export default function AttractionCard({ information, id }) {
     </section>
   );
 }
-
-/*
-<address>
-          <img src={location} />
-          {information.address.pedestrian && (
-            <p>{information.address.pedestrian}</p>
-          )}
-          {information.address.house_number && (
-            <p>{information.address.house_number}</p>
-          )}
-          {information.address.city && <p>{information.address.city}</p>}
-          {information.address.country_code && (
-            <p>{information.address.country_code.toUpperCase()}</p>
-          )}
-        </address>
-*/

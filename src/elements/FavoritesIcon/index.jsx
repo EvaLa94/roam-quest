@@ -1,5 +1,5 @@
-import { FavoritesSvg } from "@/assets/FavoritesSvg";
 import { FavoritesFilledSvg } from "@/assets/FavoritesFilledSvg";
+import { FavoritesSvg } from "@/assets/FavoritesSvg";
 import { FavoritesContext } from "@/contexts/favorites";
 import { useContext } from "react";
 
@@ -21,7 +21,7 @@ export default function FavoritesIcon({ destination, data }) {
 
   const removeFavorite = () => {
     const modifiedData = favorites[destination].filter(
-      (element) => element != data
+      (element) => element.id != data.id
     );
 
     localStorage.setItem(destination, JSON.stringify(modifiedData));
@@ -32,7 +32,7 @@ export default function FavoritesIcon({ destination, data }) {
     });
   };
 
-  return favorites[destination].includes(data) ? (
+  return favorites[destination].map((el) => el.id).includes(data.id) ? (
     <span onClick={removeFavorite}>
       <FavoritesFilledSvg fill="red" height="25px" />
     </span>
