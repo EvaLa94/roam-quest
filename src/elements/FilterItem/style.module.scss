@@ -1,0 +1,15 @@
+@import "@/theme/main.scss";
+
+.container {
+  max-width: $medium-max-width;
+  margin: auto;
+
+  p {
+    padding: 5px;
+    text-align: left;
+  }
+}
+
+.active {
+  background-color: lighten($color-primary, 65%);
+}

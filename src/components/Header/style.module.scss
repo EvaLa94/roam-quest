@@ -7,17 +7,18 @@
 
 .container {
   text-align: center;
-  line-height: 150px;
   max-width: $large-max-width;
   margin: auto;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-around;
+  align-items: center;
 
   a {
     color: $text-light;
     text-decoration: none;
+    padding: 15px;
     &:hover {
       color: $color-secondary;
     }

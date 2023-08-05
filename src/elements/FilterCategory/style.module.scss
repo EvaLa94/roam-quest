@@ -1,0 +1,35 @@
+@import "@/theme/main.scss";
+
+.container {
+  max-width: $medium-max-width;
+  margin: auto;
+}
+
+.active {
+  background-color: lighten($color-primary, 65%);
+}
+
+.hidden {
+  display: none;
+}
+
+.down {
+  transition: transform 0.3s ease;
+  transform: rotate(-180deg);
+}
+
+.top {
+  transition: transform 0.3s ease;
+  transform: rotate(0deg);
+}
+
+.titleContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  img {
+    height: 25px;
+  }
+}
