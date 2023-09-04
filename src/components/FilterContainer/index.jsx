@@ -31,7 +31,9 @@ export default function FilterContainer({ activeFilters, setActiveFilters }) {
       } else {
         setActiveFilters([...activeFilters, ...filterBatch]);
       }
-    } catch (err) {}
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   const buildFilterContainer = (element) => {

@@ -12,10 +12,12 @@ export default function AttractionInfo() {
     data: information,
     isLoading,
     isError,
-  } = useQuery(["information"], () => {
-    return getAttractionInfo(params.id)
-      .then((data) => data)
-      .catch((err) => console.log(err));
+  } = useQuery({
+    queryKey: ["information"],
+    queryFn: async () => {
+      const data = await getAttractionInfo(params.id);
+      return data;
+    },
   });
 
   return (

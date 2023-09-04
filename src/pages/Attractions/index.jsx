@@ -20,10 +20,12 @@ export default function Attractions() {
     data: attractions,
     isLoading,
     isError,
-  } = useQuery(["attractions", activeFilters], () => {
-    return getAttractions(latitude, longitude, activeFilters)
-      .then((data) => data)
-      .catch(console.log);
+  } = useQuery({
+    queryKey: ["attractions", activeFilters],
+    queryFn: async () => {
+      const data = await getAttractions(latitude, longitude, activeFilters);
+      return data;
+    },
   });
 
   return (
