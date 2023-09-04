@@ -9,17 +9,17 @@ export default function CitiesList() {
   const { message } = useContext(MessageContext);
   const { cities } = useContext(CitiesContext);
 
+  if (cities.length === 0) {
+    return <p className={messageParagraph}>{message}</p>;
+  }
+
   return (
     <>
-      {cities.length > 0 ? (
-        <div className={container}>
-          {cities.map((result, index) => (
-            <CityItem key={index} result={result} />
-          ))}
-        </div>
-      ) : (
-        <p className={messageParagraph}>{message}</p>
-      )}
+      <div className={container}>
+        {cities.map((result, index) => (
+          <CityItem key={index} result={result} />
+        ))}
+      </div>
     </>
   );
 }

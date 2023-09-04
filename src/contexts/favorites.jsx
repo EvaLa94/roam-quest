@@ -1,11 +1,16 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useMemo } from "react";
 
 export const FavoritesContext = createContext();
 
 export default function FavoritesProvider({ children }) {
-  const savedCities = JSON.parse(localStorage.getItem("cities")) || [];
-  const savedAttractions =
-    JSON.parse(localStorage.getItem("attractions")) || [];
+  const savedCities = useMemo(
+    () => JSON.parse(localStorage.getItem("cities")) || [],
+    []
+  );
+  const savedAttractions = useMemo(
+    () => JSON.parse(localStorage.getItem("attractions")) || [],
+    []
+  );
 
   const [favorites, setFavorites] = useState({
     cities: savedCities,
