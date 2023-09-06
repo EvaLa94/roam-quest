@@ -1,35 +1,20 @@
-import { container } from "./style.module.scss";
-import { filterCategories } from "@/services/filter-categories";
-import FilterItem from "@/elements/FilterItem";
 import FilterCategory from "@/elements/FilterCategory";
+import FilterItem from "@/elements/FilterItem";
+import { filterCategories } from "@/services/filter-categories";
+
+import { container } from "./style.module.scss";
 
 export default function FilterContainer({ activeFilters, setActiveFilters }) {
   const isFilterActive = (filter) => activeFilters.includes(filter);
 
-  const handleFilterChange = (event) => {
+  const handleFilterChange = (filterToAlter) => {
     try {
-      const filterType = event.target.getAttribute("filtertype");
-      let filterBatch;
-
-      if (filterType === "single") {
-        filterBatch = [event.target.closest("span").id];
-      } else if (filterType === "group") {
-        const target = event.target.closest("article");
-        filterBatch = Array.from(
-          [
-            ...target.querySelectorAll("span"),
-            ...target.querySelectorAll("article"),
-            target,
-          ],
-          (element) => element.className
-        );
-      }
-      if (filterBatch.every(isFilterActive)) {
+      if (filterToAlter.every(isFilterActive)) {
         setActiveFilters(
-          activeFilters.filter((element) => !filterBatch.includes(element))
+          activeFilters.filter((element) => !filterToAlter.includes(element))
         );
       } else {
-        setActiveFilters([...activeFilters, ...filterBatch]);
+        setActiveFilters([...activeFilters, ...filterToAlter]);
       }
     } catch (err) {
       console.log(err);
@@ -54,12 +39,8 @@ export default function FilterContainer({ activeFilters, setActiveFilters }) {
       return list;
     }
 
-    if (typeof element === "object" && Array.isArray(element)) {
-      const list = [];
-      for (const el of element) {
-        list.push(buildFilterContainer(el));
-      }
-      return list;
+    if (Array.isArray(element)) {
+      return element.map((el) => buildFilterContainer(el));
     }
 
     if (typeof element === "string") {
@@ -68,6 +49,7 @@ export default function FilterContainer({ activeFilters, setActiveFilters }) {
           key={element}
           element={element}
           activeFilters={activeFilters}
+          handleFilterChange={handleFilterChange}
         />
       );
     }
