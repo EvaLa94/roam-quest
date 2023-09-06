@@ -1,15 +1,19 @@
 import { capitalizeFirstLetter } from "@/services/capitalize";
+
 import { active, container } from "./style.module.scss";
 
-export default function FilterItem({ element, activeFilters }) {
+export default function FilterItem({
+  element,
+  activeFilters,
+  handleFilterChange,
+}) {
   return (
-    <span filtertype="single" className={element} id={element}>
-      <p
-        filtertype="single"
-        className={`${activeFilters.includes(element) && active}`}
-      >
-        {capitalizeFirstLetter(element).replaceAll("_", " ")}
-      </p>
-    </span>
+    <p
+      className={`${activeFilters.includes(element) && active}`}
+      id={element}
+      onClick={() => handleFilterChange([element])}
+    >
+      {capitalizeFirstLetter(element).replaceAll("_", " ")}
+    </p>
   );
 }

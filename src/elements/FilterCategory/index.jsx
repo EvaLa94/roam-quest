@@ -1,7 +1,8 @@
-import { capitalizeFirstLetter } from "@/services/capitalize";
-import { titleContainer, active, hidden, down, top } from "./style.module.scss";
-import { useState } from "react";
 import expand from "@/assets/expand.svg";
+import { capitalizeFirstLetter } from "@/services/capitalize";
+import { useState } from "react";
+
+import { active, down, hidden, titleContainer, top } from "./style.module.scss";
 
 export default function FilterCategory({
   element,
@@ -10,20 +11,31 @@ export default function FilterCategory({
   activeFilters,
 }) {
   const [isHidden, setIsHidden] = useState("true");
+  const getChildrenId = (childrenList) => {
+    return childrenList.map((child) => {
+      if (Array.isArray(child)) {
+        const childCategory = child[0];
+        return [
+          childCategory.key,
+          ...getChildrenId(childCategory.props.children),
+        ].flatMap((el) => el);
+      }
+
+      return child.key;
+    });
+  };
+
+  const childrenIdList = getChildrenId(children).flatMap((el) => el);
 
   return (
-    <article
-      className={`${element}`}
-      filtertype="group"
-      id={element}
-      onClick={(event) => {
-        handleFilterChange(event);
-      }}
-    >
+    <article id={element}>
       <div className={titleContainer}>
         <h3
-          filtertype="group"
           className={`${activeFilters.includes(element) && active}`}
+          onClick={() => {
+            handleFilterChange([...childrenIdList, element]);
+            console.log(childrenIdList);
+          }}
         >
           {capitalizeFirstLetter(element).replaceAll("_", " ")}
         </h3>
