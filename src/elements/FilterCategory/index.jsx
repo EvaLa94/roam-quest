@@ -11,7 +11,21 @@ export default function FilterCategory({
   activeFilters,
 }) {
   const [isHidden, setIsHidden] = useState("true");
-  const childrenId = children.map((child) => child.key);
+  const getChildrenId = (childrenList) => {
+    return childrenList.map((child) => {
+      if (Array.isArray(child)) {
+        const childCategory = child[0];
+        return [
+          childCategory.key,
+          ...getChildrenId(childCategory.props.children),
+        ].flatMap((el) => el);
+      }
+
+      return child.key;
+    });
+  };
+
+  const childrenIdList = getChildrenId(children).flatMap((el) => el);
 
   return (
     <article id={element}>
@@ -19,7 +33,8 @@ export default function FilterCategory({
         <h3
           className={`${activeFilters.includes(element) && active}`}
           onClick={() => {
-            handleFilterChange([...childrenId, element]);
+            handleFilterChange([...childrenIdList, element]);
+            console.log(childrenIdList);
           }}
         >
           {capitalizeFirstLetter(element).replaceAll("_", " ")}
